@@ -20,7 +20,7 @@ bindings = [
 # v1: original deployment (AdminStore + RouteHub, already applied on Cloudflare)
 [[migrations]]
 tag = "v1"
-new_sqlite_classes = ["AdminStore", "RouteHub"]
+new_sqlite_classes = ["AdminStore"]
 
 # v2: transition — delete old classes and create RelayRoom in one step
 #[[migrations]]
