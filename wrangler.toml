@@ -23,10 +23,10 @@ tag = "v1"
 new_sqlite_classes = ["AdminStore", "RouteHub"]
 
 # v2: transition — delete old classes and create RelayRoom in one step
-[[migrations]]
-tag = "v2"
-deleted_classes = ["AdminStore", "RouteHub"]
-new_sqlite_classes = ["RelayRoom"]
+#[[migrations]]
+#tag = "v2"
+#deleted_classes = ["AdminStore", "RouteHub"]
+#new_sqlite_classes = ["RelayRoom"]
 
 [observability]
 enabled = false
