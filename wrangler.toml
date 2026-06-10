@@ -8,25 +8,16 @@ WS_PATH = "ws"
 EASYTIER_DISABLE_RELAY = "0"
 EASYTIER_COMPRESS_RPC = "1"
 LOCATION_HINT = "apac"
-# Set ADMIN_PASSWORD as a Secret in the Cloudflare dashboard (Workers > Settings > Variables)
-# Do NOT commit your real password here.
-# ADMIN_PASSWORD is set via Cloudflare secret; do not commit actual password
 
 [durable_objects]
 bindings = [
   { name = "RELAY_ROOM", class_name = "RelayRoom" }
 ]
 
-# v1: original deployment (AdminStore + RouteHub, already applied on Cloudflare)
+# 核心修改点：这里只告诉 Cloudflare 全新创建一个 RelayRoom
 [[migrations]]
 tag = "v1"
-new_sqlite_classes = ["AdminStore"]
-
-# v2: transition — delete old classes and create RelayRoom in one step
-#[[migrations]]
-#tag = "v2"
-#deleted_classes = ["AdminStore", "RouteHub"]
-#new_sqlite_classes = ["RelayRoom"]
+new_sqlite_classes = ["RelayRoom"]
 
 [observability]
 enabled = false
